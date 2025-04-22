@@ -13,15 +13,6 @@ const page = () => {
             <input type="text" placeholder='Search for products...' className='w-full max-w-[400px] p-2 border border-[#fff] rounded' />
             <button className='p-2 bg-[#EC770A] text-white rounded hover:bg-[#EC770A]/80'>Search</button>
         </div>
-        <Link href="/cart" passHref className='p-3 bg-[#EC770A] rounded-full'>
-            <div className="relative cursor-pointer">
-                <ShoppingCart size={36} className='' color='#fff' />
-                <div className="absolute -top-[3px] -right-[5px] h-[15px] w-[15px] rounded-full bg-white p-2 flex items-center justify-center font-bold text-[12px] text-black">2</div>
-            </div>
-        </Link>
-        <div className='w-full p-[20px] grid grid-cols-1 sm:grid-cols-2 md:grid-cols-3 lg:grid-cols-4 gap-[20px]'>
-            
-        </div>
         <ProductList />
     </div>
   )
