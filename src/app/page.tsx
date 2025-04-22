@@ -35,7 +35,7 @@ export default function Home() {
             width={16}
             height={16}
           />
-          Created by <a className="text-blue-300 font-bold hover:underline hover:underline-offset-4" href="https://www.github.com/ammanabua" target="_blank" rel="noopener noreferrer">Amman</a> and <a className="text-yellow-300 font-bold hover:underline hover:underline-offset-4" href="https://www.github.com/JhonatanBellaiza" target="_blank" rel="noopener noreferrer">Jhonathan</a>
+          Created by <a className="text-blue-300 font-bold hover:underline hover:underline-offset-4" href="https://www.github.com/ammanabua" target="_blank" rel="noopener noreferrer">Amman</a> and <a className="text-yellow-300 font-bold hover:underline hover:underline-offset-4" href="https://www.github.com/JhonatanBellaiza" target="_blank" rel="noopener noreferrer">Jhonatan</a>
         </div>
       </footer>
     </div>
