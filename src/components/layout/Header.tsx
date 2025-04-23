@@ -4,7 +4,7 @@ import { ShoppingCart } from 'lucide-react'
 import { useSelector } from 'react-redux'
 
 const Header = () => {
-  const quantity = useSelector(state => state.cart.items.reduce((acc, item) => acc + item.quantity, 0))
+  const quantity = useSelector(state => state.cart.items.length)
 
   return (
     <div className='flex items-center justify-end w-full p-4 mx-auto bg-[#1A1A1A] text-white sticky top-0 z-50'>

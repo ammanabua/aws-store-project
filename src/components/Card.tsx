@@ -18,7 +18,7 @@ const Card = () => {
       </div>
       <p className='text-[#808080]'>Delicious charcoal stove cooked fried rice</p>
       <div className=''>
-        <input type="number" className='bg-white rounded-lg text-black p-2 w-24 border border-black' />
+        <input type="number" className='bg-white rounded-lg text-black p-2 w-24 border border-black' defaultValue={1} />
       </div>
       <div className='flex items-center justify-center gap-2'>
         <button className='bg-green-700 p-2 rounded-lg w-full cursor-pointer'>Add to Cart</button>

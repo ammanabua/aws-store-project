@@ -3,7 +3,18 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Link from 'next/link';
 
+interface FormData {
+  name: string;
+  contentType: string;
+  desc: string;
+  price: number;
+  quantity: number;
+  category: string;
+  url: string;
+}
+
 const ImageUploader = () => {
+  const [FormData, setFormData] = useState<FormData | null>(null);
   const [file, setFile] = useState<File | null>(null);
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');
@@ -51,24 +62,25 @@ const ImageUploader = () => {
         <div className='flex flex-col gap-4 items-center justify-center w-full h-full'>
             <h2 className='text-2xl font-bold text-center my-4'>Create a new product</h2>
             <form action="" className='flex flex-col gap-4 items-center'>
-                <div className='flex flex-col gap-4 items-center'>
-                    <input type="text" placeholder='Product Name' className='border border-1 border-blue-600 p-2 rounded-lg w-[400px]' />
-                    <input type="text" placeholder='Product Description' className='border border-1 border-blue-600 p-2 rounded-lg w-[400px]' />
-                    <input type="number" placeholder='Product Price' className='border border-1 border-blue-600 p-2 rounded-lg w-[400px]' />
-                    <input type="text" placeholder='Product Category' className='border border-1 border-blue-600 p-2 rounded-lg w-[400px]' />
-                </div>
-                <button type="submit" className='bg-[#EC770A] text-white p-2 rounded-lg mt-4'>Create Product</button>
+              <div className='flex gap-4 items-center justify-center'>
+                <input type="file" onChange={handleFileChange} />
+                <button onClick={handleUpload}>Upload</button>
+                <p>{message}</p>
+              </div>
+              <div className='flex flex-col gap-4 items-center'>
+                  <input type="text" placeholder='Product Name' className='border border-1 border-blue-600 p-2 rounded-lg w-[400px]' />
+                  <input type="text" placeholder='Product Description' className='border border-1 border-blue-600 p-2 rounded-lg w-[400px]' />
+                  <input type="number" placeholder='Product Price' className='border border-1 border-blue-600 p-2 rounded-lg w-[400px]' />
+                  <input type="text" placeholder='Product Category' className='border border-1 border-blue-600 p-2 rounded-lg w-[400px]' />
+              </div>
+              <button type="submit" className='bg-[#EC770A] text-white p-2 rounded-lg mt-4'>Create Product</button>
             </form>
-            <h2>Upload Image</h2>
             <input className='border border-1 border-blue-600 p-2 rounded-lg w-[400px]'
                 type="email"
                 placeholder="Enter your email"
                 value={email}
                 onChange={(e) => setEmail(e.target.value)}
                 />
-            <input type="file" onChange={handleFileChange} />
-            <button onClick={handleUpload}>Upload</button>
-            <p>{message}</p>
             <Link href="/products" className='text-[#EC770A] p-2 rounded-lg'>Go to Products</Link>
         </div>
 
