@@ -1,6 +1,7 @@
 'use client'
 import React, { useState } from 'react';
 import axios from 'axios';
+import Link from 'next/link';
 
 const ImageUploader = () => {
   const [file, setFile] = useState<File | null>(null);
@@ -47,7 +48,7 @@ const ImageUploader = () => {
 
   return (
     <div className='flex w-full h-screen justify-center'>
-        <div>
+        <div className='flex flex-col gap-4 items-center justify-center w-full h-full'>
             <h2 className='text-2xl font-bold text-center my-4'>Create a new product</h2>
             <form action="" className='flex flex-col gap-4 items-center'>
                 <div className='flex flex-col gap-4 items-center'>
@@ -68,7 +69,9 @@ const ImageUploader = () => {
             <input type="file" onChange={handleFileChange} />
             <button onClick={handleUpload}>Upload</button>
             <p>{message}</p>
+            <Link href="/products" className='text-[#EC770A] p-2 rounded-lg'>Go to Products</Link>
         </div>
+
     </div>
   );
 };
