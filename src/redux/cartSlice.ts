@@ -1,6 +1,6 @@
 import { createSlice } from '@reduxjs/toolkit';
 
-interface CartItem {
+export type CartItem = {
     id: string;
     name: string;
     price: number;

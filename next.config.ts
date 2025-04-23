@@ -8,7 +8,7 @@ module.exports = {
 
 const nextConfig: NextConfig = {
   /* config options here */
-  
+  distDir: "build",
 };
 
 export default nextConfig;

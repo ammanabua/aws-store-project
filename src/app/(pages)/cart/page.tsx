@@ -2,16 +2,10 @@
 import React from 'react'
 import Link from 'next/link'
 import { useDispatch, useSelector } from 'react-redux';
-import { clearCart, } from '@/redux/cartSlice';
+import { clearCart } from '@/redux/cartSlice';
+import { RootState } from '@/redux/store'; // Import the RootState type
+import   { CartItem }   from '@/redux/cartSlice'; // Import the CartItem type
 
-// Define the Product type
-type Product = {
-  _id: string;
-  url: string;
-  name: string;
-  price: number;
-  quantity: number;
-};
 import Image from 'next/image';
 
 
@@ -19,6 +13,9 @@ import Image from 'next/image';
 
 const Cart = () => {
 
+
+  const cart = useSelector((state: RootState) => state.cart) as { items: ( CartItem)[] };
+  const dispatch = useDispatch();
 
   const FilledCart = () => (
     <>
@@ -30,31 +27,36 @@ const Cart = () => {
                       <th>Name</th>
                       <th>Price</th>
                       <th>Quantity</th>
-                      <th>Total</th>
+                      <th>Total ($)</th>
                   </tr>
               </thead>
               <tbody>
-                    {cart.items.map((product: Product) => (
-                      <tr className="text-black" key={product._id}>
+                    {cart.items.map((product: CartItem) => (
+                      <tr className="text-black" key={product.id}>
                         <td>
                           <div className="relative w-[100px] h-[100px]">
-                            <Image className="rounded-xl" src={product.url} layout="fill" objectFit="cover" alt="" />
+                            <Image className="rounded-xl" src={product.image || "/indos.png"} layout="fill" objectFit="cover" alt="" />
                           </div>
                         </td>
                         <td>
-                          <span className="">{product.name}</span>
+                          <span className="flex justify-center">{product.name}</span>
                         </td>
                         <td>
-                          <span className="">{product.price}</span>
+                          <span className="flex justify-center">{product.price}</span>
                         </td>
                         <td>
-                          <span className="">{product.quantity}</span>
+                          <span className="flex justify-center">{product.quantity}</span>
                         </td>
                         <td>
-                          <span className="">{product.price * product.quantity}</span>
+                          <span className="flex justify-center font-bold">{product.price * product.quantity}</span>
                         </td>
                       </tr>
                     ))}
+
+                    <tr className="bg-green-600 text-white font-bold">
+                      <td colSpan={4} className="text-center">Total</td>
+                      <td className="text-center">{cart.items.reduce((acc, product) => acc + product.price * product.quantity, 0)}</td>
+                    </tr>
               </tbody>
           </table>
           <Link href="/products" className='text-center text-lg hover:text-[#EC770A] hover:underline hover:underline-offset-2'>
@@ -64,16 +66,14 @@ const Cart = () => {
             <button className='p-2 bg-red-800 text-white rounded hover:bg-[#EC770A]/80' onClick={handleReset}>
               Clear Cart
             </button>
-            <button className='p-2 bg-green-600 text-white rounded hover:bg-[#EC770A]/80' onClick={handleReset}>
+            <button className='p-2 bg-green-600 text-white rounded hover:bg-[#EC770A]/80' onClick={handleCheckout}>
               Create Order
             </button>
           </div>
       </div>
     </>
   ) 
-
-  const cart = useSelector((state) => state.cart);
-  const dispatch = useDispatch();
+  
 
   const handleReset = () => {
     dispatch(clearCart());

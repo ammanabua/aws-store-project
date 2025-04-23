@@ -1,7 +1,6 @@
 'use client'
 import Image from "next/image"
 import { useState } from "react";
-import axios from "axios";
 import { useDispatch } from "react-redux";
 import { addProduct } from "../../../../redux/cartSlice";
 import Link from "next/link";
@@ -35,7 +34,7 @@ const food: Food[] = [
 
 const Product = () => {
 
-    const [price, setPrice] = useState(food[0].price);
+    const [price, ] = useState(food[0].price);
     const [quantity, setQuantity] = useState(1);
     const dispatch = useDispatch();
 
@@ -44,7 +43,7 @@ const Product = () => {
     const handleClick = () => {
       console.log("clicked");
         dispatch(addProduct({ 
-          id: "1", 
+          id: Math.random().toString(36).substring(2, 9),
           name: food[0].title, 
           price, 
           quantity,
@@ -66,7 +65,7 @@ const Product = () => {
           
             <div className="flex gap-4">
                 <input 
-                  onChange={(e) => setQuantity(parseInt(e.target.value) || 1)} type="number" 
+                  onChange={(e) => setQuantity(parseInt(e.target.value))} type="number" 
                   value={quantity} 
                   className="border border-1 border-[#EC770A] rounded-lg p-2 w-[100px] text-center" 
                 />

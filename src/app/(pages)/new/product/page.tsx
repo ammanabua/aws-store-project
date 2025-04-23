@@ -3,18 +3,8 @@ import React, { useState } from 'react';
 import axios from 'axios';
 import Link from 'next/link';
 
-interface FormData {
-  name: string;
-  contentType: string;
-  desc: string;
-  price: number;
-  quantity: number;
-  category: string;
-  url: string;
-}
 
 const ImageUploader = () => {
-  const [FormData, setFormData] = useState<FormData | null>(null);
   const [file, setFile] = useState<File | null>(null);
   const [email, setEmail] = useState('');
   const [message, setMessage] = useState('');

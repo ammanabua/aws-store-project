@@ -2,9 +2,12 @@ import React from 'react'
 import Link from 'next/link'
 import { ShoppingCart } from 'lucide-react'
 import { useSelector } from 'react-redux'
+import { RootState } from '@/redux/store' // Import the RootState type
+
 
 const Header = () => {
-  const quantity = useSelector(state => state.cart.items.length)
+  const quantity = useSelector((state: RootState) => state.cart.items.length) as number;
+  
 
   return (
     <div className='flex items-center justify-end w-full p-4 mx-auto bg-[#1A1A1A] text-white sticky top-0 z-50'>
