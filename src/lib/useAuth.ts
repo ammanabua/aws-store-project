@@ -3,9 +3,9 @@ import { useRouter } from 'next/router';
 import { encode } from 'punycode';
 import { useEffect } from 'react';
 
-const domain = process.env.NEXT_PUBLIC_COGNITO_DOMAIN!;
-const clientId = process.env.NEXT_PUBLIC_COGNITO_CLIENT_ID!;
-const redirectUri = process.env.NEXT_PUBLIC_COGNITO_REDIRECT_URI!;
+const domain = 'us-east-1brzthbmt8.auth.us-east-1.amazoncognito.com';
+const clientId = '6sm7j2a6770kf8ecnjkpist5o7';
+const redirectUri = 'https://main.d31dw6myi9bt2x.amplifyapp.com//auth';
 
 export const login = (redirectPath: string = '/cart') => {
   const loginUrl = `https://${domain}/login?client_id=${clientId}&response_type=code&scope=email+openid+phone&redirect_uri=${redirectUri}&state=${encode(redirectPath)}`;
