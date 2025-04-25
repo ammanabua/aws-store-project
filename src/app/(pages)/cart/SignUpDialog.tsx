@@ -1,7 +1,6 @@
-import { Dialog, DialogPanel, DialogTitle, Transition, DialogBackdrop } from '@headlessui/react'
+import { Dialog, DialogPanel, Transition, DialogBackdrop } from '@headlessui/react'
 import { useState } from 'react';
 import Link from 'next/link';
-import { getConfiguredExperimentalFeatures } from 'next/dist/server/config';
 
 interface SignInDialogProps {
   isOpen: boolean;

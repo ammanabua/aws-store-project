@@ -1,12 +1,10 @@
 'use client'
-import React, { useState } from 'react'
+import React from 'react'
 import Link from 'next/link'
-import { useDispatch, useSelector } from 'react-redux';
+import { useSelector } from 'react-redux';
 
 import FilledCart from './FilledCart';
 
-
-import Image from 'next/image';
 import { RootState } from '@/redux/store';
 
 

@@ -1,5 +1,5 @@
 import { useState } from 'react'
-import { login, getToken } from '@/lib/useAuth';
+import { getToken } from '@/lib/useAuth';
 import Link from 'next/link'
 import { useDispatch, useSelector } from 'react-redux';
 import { clearCart } from '@/redux/cartSlice';

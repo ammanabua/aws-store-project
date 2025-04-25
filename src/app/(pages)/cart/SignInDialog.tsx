@@ -1,4 +1,4 @@
-import { Dialog, DialogPanel, DialogTitle, Transition, DialogBackdrop } from '@headlessui/react'
+import { Dialog, DialogPanel, Transition, DialogBackdrop } from '@headlessui/react'
 import { useState } from 'react';
 import Link from 'next/link';
 import axios from 'axios';
