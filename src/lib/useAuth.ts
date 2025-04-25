@@ -10,15 +10,23 @@ const redirectUri = process.env.NEXT_PUBLIC_COGNITO_REDIRECT_URI!;
 export const login = (redirectPath: string = '/cart') => {
   const loginUrl = `https://${domain}/login?client_id=${clientId}&response_type=code&scope=email+openid+phone&redirect_uri=${redirectUri}&state=${encode(redirectPath)}`;
   
-  window.location.href = loginUrl;
+  if (typeof window !== 'undefined') {
+    window.location.href = loginUrl;
+  }
 };
 
 export const logout = () => {
-  localStorage.removeItem('access_token');
+  if (typeof window !== 'undefined') {
+    localStorage.removeItem('access_token');
+    window.location.href = '/products'; // Redirect to products page after logout
+  }
 };
 
 export const getToken = () => {
-  return localStorage.getItem('token');
+  if (typeof window !== 'undefined') {
+    return localStorage.getItem('token');
+  }
+  return null;
 };
 
 // Optional: hook to enforce auth

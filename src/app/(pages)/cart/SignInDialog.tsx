@@ -76,7 +76,7 @@ const SignInDialog = ({ isOpen, onClose }: SignInDialogProps) => {
 
         <div className="fixed inset-0 flex items-center justify-center">
           <Transition show={isOpen}>
-            <DialogPanel className="w-full max-w-xl rounded-xl bg-white p-6 shadow-lg">
+            <DialogPanel className="w-full max-w-md rounded-xl bg-white p-6 shadow-lg">
               
               {/* STEP 1: Enter Loan Amount */}
               <form onSubmit={handleSubmit} className='flex flex-col gap-4 w-full'>

@@ -10,11 +10,13 @@ import { getToken } from '@/lib/useAuth';
 const Header = () => {
   const quantity = useSelector((state: RootState) => state.cart.items.length) as number;
 
-  const token = getToken(); // Get the token from local storage or state
+  const token = getToken(); // Get the token from local storage
 
   const handleLogout = () => {
-    localStorage.removeItem('token');
-    window.location.href = '/';
+    if (typeof window !== "undefined") {
+      localStorage.removeItem("token"); // or any other keys you're using
+      window.location.href = "/products"; // redirect after logout
+    }
   }
 
   return (
@@ -26,7 +28,7 @@ const Header = () => {
           <div>
             Signed in!
 
-            <button onClick={handleLogout}>Log out</button>
+            <button onClick={handleLogout} className='ml-4 border border-1 border-grey-300 p-2 rounded-lg cursor-pointer'>Log out</button>
           </div>
         )}
         <Link href="/cart" passHref className='p-3 bg-[#EC770A] rounded-full'>
