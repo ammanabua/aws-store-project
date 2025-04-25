@@ -1,10 +1,9 @@
 'use client'
 import Image from "next/image"
-import { useEffect, useState } from "react";
+import { useState } from "react";
 import { useDispatch } from "react-redux";
 import { addProduct } from "../../../../redux/cartSlice";
 import Link from "next/link";
-import axios from "axios";
 
 
 interface Food {
