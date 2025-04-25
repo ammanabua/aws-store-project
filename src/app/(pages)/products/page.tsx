@@ -1,8 +1,10 @@
 'use client'
 import ProductList from '@/components/ProductList'
+import { useState } from 'react'
 
 
 const Page = () => {
+  const [searchTerm, setSearchTerm] = useState<string>('');
   
   return (
     
@@ -10,10 +12,10 @@ const Page = () => {
         <h1 className='text-center text-3xl text-[#EC770A] my-4'>Find the best products in the area...</h1>
 
         <div className='flex items-center justify-center gap-4 w-full max-w-[600px] mb-[20px] m-auto'>
-            <input type="text" placeholder='Search for products...' className='w-full max-w-[400px] p-2 border border-[#fff] rounded' />
+            <input type="text" value={searchTerm} onChange={(e) => setSearchTerm(e.target.value)} placeholder='Search for products...' className='w-full max-w-[400px] p-2 border border-[#fff] rounded' />
             <button className='p-2 bg-[#EC770A] text-white rounded hover:bg-[#EC770A]/80'>Search</button>
         </div>
-        <ProductList />
+        <ProductList searchTerm={searchTerm} />
     </div>
   )
 }
