@@ -1,9 +1,10 @@
 'use client'
 import Image from "next/image"
-import { useState } from "react";
+import { useEffect, useState } from "react";
 import { useDispatch } from "react-redux";
 import { addProduct } from "../../../../redux/cartSlice";
 import Link from "next/link";
+import axios from "axios";
 
 
 interface Food {
@@ -30,6 +31,7 @@ const food: Food[] = [
     url: "/img/noodles.jpg"
   },
 ]
+
 
 
 const Product = () => {

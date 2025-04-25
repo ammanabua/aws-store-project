@@ -7,7 +7,7 @@ const Page = () => {
   return (
     
       <div className='w-full min-h-screen p-8 pb-20 gap-8 sm:p-10 font-[family-name:var(--font-geist-sans)]'>
-        <h1 className='text-center text-3xl text-[#EC770A]'>Find the best food in the area...</h1>
+        <h1 className='text-center text-3xl text-[#EC770A] my-4'>Find the best products in the area...</h1>
 
         <div className='flex items-center justify-center gap-4 w-full max-w-[600px] mb-[20px] m-auto'>
             <input type="text" placeholder='Search for products...' className='w-full max-w-[400px] p-2 border border-[#fff] rounded' />
