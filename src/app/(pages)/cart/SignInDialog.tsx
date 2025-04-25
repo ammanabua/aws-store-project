@@ -62,6 +62,7 @@ const SignInDialog = ({ isOpen, onClose }: SignInDialogProps) => {
             if (result.success) {
                 console.log('Login successful:', result.idToken);
                 setMsg(result.message);
+                onClose(); // Close the dialog on successful login
             } else {
                 setMsg(result.message);
             }
