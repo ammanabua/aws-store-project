@@ -30,7 +30,7 @@ const SignInDialog = ({ isOpen, onClose }: SignInDialogProps) => {
     const handleSignIn = async (username: string, password: string) => {      
         try {
           const response = await axios.post(
-            `${process.env.NEXT_PUBLIC_API_BASE_URL}/auth`,
+            `https://t0jtno2bbe.execute-api.us-east-1.amazonaws.com/dev/auth`,
             {
                 action: 'login',
               username,

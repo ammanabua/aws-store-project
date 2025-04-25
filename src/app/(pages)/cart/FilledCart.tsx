@@ -56,36 +56,6 @@ const FilledCart = () => {
     }
     };
     
-    
-
-
-    // const createOrder = async () => {
-    //     const token = getToken();
-    //     if(!token){
-    //       console.error("User is not logged in")
-    //       login('/cart');
-    //       return;
-    //     }
-    
-    //     try {
-    //       setCreatingOrder(true);
-    //       const res = await fetch(`${process.env.NEXT_PUBLIC_API_BASE_URL}`, {
-    //         method: 'POST',
-    //         headers: {
-    //           Authorization: `Bearer ${token}`,
-    //           'Content-Type': 'application/json',
-    //         },
-    //         body: JSON.stringify({ item: 'Pizza' }),
-    //       });
-    
-    //       const data: OrderResponse = await res.json();
-    //       setResponse(data);
-    //       console.log('Order Created!')
-    //     } catch (error) {
-    //       console.error("Error creating order:", error);
-    //       setResponse({ message: "Error occurred" });
-    //     }
-    //   }
 
   return (
     <>
